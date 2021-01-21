@@ -1,0 +1,23 @@
+///R
+.header-wrapper{
+    background: #3c3b63;
+    position: fixed;
+    top:0;
+    color: #ffffff; 
+    box-shadow:0 0px 5px 5px rgba(0,0,0,0.2);
+    height: 45px;
+    width: 100vw;
+    vertical-align: middle;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    z-index: 10;
+    .header-end-wrapper{
+        height: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+    }
+}

@@ -1,0 +1,23 @@
+.App {
+  .NewsApp-wrapper {
+    .contents-container {
+      width: 90vw;
+      margin: 54px auto 0;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      align-items: baseline;
+
+      .MuiCard-root{
+        .NewsCard-header{
+          .MuiCardHeader-avatar{
+            margin: 0;
+          }
+          .MuiCardHeader-content{
+            padding: 0 16px;
+          }
+        }
+      }
+    }
+  }
+}

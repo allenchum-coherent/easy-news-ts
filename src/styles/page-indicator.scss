@@ -1,0 +1,67 @@
+.page-indicator-container{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    margin: 20px 10px;
+    position: relative;
+    .page-indic{
+        width: 38px;
+        height: 38px;
+        border: solid 0.8px #fff;
+        border-radius: 12px;
+        background-color: #fff;
+        color: #000;
+        text-align: center;
+        line-height: 43px;
+        font-family: Arial;
+        font-size: 14.8px;
+        position: relative;
+        margin: 0 5px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+
+        &:hover{
+            border: solid 0.8px #AC7AC1;
+            box-shadow: 0 0 0.5px 0.5px #C076E0;
+        }
+
+        &.active{
+            border: solid 0.8px #71708D;
+            background-color: #71708D;
+            color: #fff;
+        }
+
+        &.arrow-right{
+            &::before{
+                content: '';
+                width: 8px;
+                height: 8px;
+                border-bottom: solid 2px #bebebe;
+                border-left: solid 2px #bebebe;
+                -ms-transform: rotate(45deg);
+                transform: rotate(-135deg);
+                position: absolute;
+                top: 15px;
+                right: 16px;
+            }
+        }
+        &.arrow-left{
+            &::before{
+                content: '';
+                width: 8px;
+                height: 8px;
+                border-top: solid 2px #bebebe;
+                border-right: solid 2px #bebebe;
+                -ms-transform: rotate(45deg);
+                transform: rotate(-135deg);
+                position: absolute;
+                top: 15px;
+                right: 12px;
+            }
+        }
+    }
+    .dots{
+        font-size: 30px;
+        color: #bebebe;
+    }
+}
