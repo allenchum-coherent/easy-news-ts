@@ -24,8 +24,9 @@ const LocaleSwitcher: FC = () => {
             value={currentLanguage}
             onChange={onSwitchLanguage}
         >
-            <Option value={'en'}>EN</Option>
-            <Option value={'ar'}>عربى</Option>
+            <Option value={'en_us'}>EN</Option>
+            <Option value={'ar_eg'}>عربى</Option>
+            <Option value={'zh_hk'}>中文</Option>
         </Select>
     )
 }

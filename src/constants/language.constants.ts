@@ -1,7 +1,8 @@
 import antdEn from 'antd/lib/locale/en_US';
 import antdAr from 'antd/lib/locale/ar_EG';
+import antdZh from 'antd/lib/locale/zh_TW';
 import {
-  en, ar
+  en_us, ar_eg, zh_hk
 } from '../locale';
 
 const formatLanguagePackage = (
@@ -26,15 +27,17 @@ const formatLanguagePackage = (
 };
 
 export const translationDictFromLocale = {
-  en: formatLanguagePackage(en),
-  ar: formatLanguagePackage(ar),
+  'en': formatLanguagePackage(en_us),
+  'ar': formatLanguagePackage(ar_eg),
+  'zh': formatLanguagePackage(zh_hk),
 };
 
 // Ant Design isn't supporting Burmese at the moment
 // FIXME: Maintain a custom locale file for Burmese
 export const antdLocaleMap = {
-  en: antdEn,
-  ar: antdAr,
+  'en_us': antdEn,
+  'ar_eg': antdAr,
+  'zh_hk': antdZh
 };
 
 export const availableLanguages = (

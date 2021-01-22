@@ -1,7 +1,7 @@
 import applicationTranslation from './application.json';
 
-const ar: { [s: string]: string | object } = {
+const zh_hk: { [s: string]: string | object } = {
     ...applicationTranslation
 };
 
-export default ar;
+export default zh_hk;

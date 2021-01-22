@@ -1,5 +1,6 @@
+import { LanguageOptions } from '../../types/language.types';
 
 export type LanguageStateType = {
-    currentLanguage: 'en' | 'ar',
+    currentLanguage: LanguageOptions,
     direction: 'ltr' | 'rtl'
 }

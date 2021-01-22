@@ -4,15 +4,14 @@ import rtlDetect from 'rtl-detect';
 import { ThunkDispatch } from 'redux-thunk';
 import { AppState } from './reducers';
 import { INewsActions } from './reducers/news';
+import { LanguageOptions } from '../types/language.types';
 
-export const fetchNews = (pageSize: number, currPage: number, language: 'en'|'ar' = 'en') => {
+export const fetchNews = (pageSize: number, currPage: number, locale: LanguageOptions = 'en_us') => {
     return (dispatch:ThunkDispatch<AppState, null, INewsActions >) => {
         dispatch(showLoading(true));
-        const languageToCountryMap = {
-            'en': 'us',
-            'ar': 'eg',
-        }
-        return axios.get('https://newsapi.org/v2/top-headlines', { 'params': { 'country': languageToCountryMap[language], 'apiKey': '758729489d09410b97af1e815878c9ec', 'pageSize': pageSize, 'page': currPage, language: language } }).then((res) => {
+        const [language, country] = locale.split('_');
+
+        return axios.get('https://newsapi.org/v2/top-headlines', { 'params': { 'country': country ?? 'us', 'apiKey': '758729489d09410b97af1e815878c9ec', 'pageSize': pageSize, 'page': currPage, language: language ?? 'en' } }).then((res) => {
             var data = res.data;
             if (data && data.status === 'ok') {
                 dispatch(updateNews(data));

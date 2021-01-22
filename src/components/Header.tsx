@@ -10,7 +10,7 @@ const Header: FC = () => {
     return (
         <div className="header-wrapper">
             <div className="header-title">
-                {intl.formatMessage({ id: 'Application.header.search' })}
+                {intl.formatMessage({ id: 'Application.header.title' })}
             </div>
             <div className="header-end-wrapper">
                 <SearchBar></SearchBar>

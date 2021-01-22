@@ -11,7 +11,7 @@ import PageIndicator from './components/PageIndicator';
 import 'antd/dist/antd.css';
 import { antdLocaleMap , translationDictFromLocale} from './constants/language.constants';
 import './App.scss';
-
+ 
 
 const App: FC = () => {
   const pageSize = 10;
@@ -22,10 +22,17 @@ const App: FC = () => {
     articles: news.articles,
     searchInputText: news.searchInputText,
     direction: language.direction,
-    currentLanguage: language.currentLanguage ?? 'en'
+    currentLanguage: language.currentLanguage ?? 'en_us'
   }));
 
   const currentAntdLocale = antdLocaleMap[currentLanguage];
+
+  const languageToLoacleMap:{[key:string]: 'en'|'ar'|'zh';} = {
+    'en_us': 'en',
+    'ar_eg': 'ar',
+    'zh_hk': 'zh'
+  }
+  const locale:'en'|'ar'|'zh' = languageToLoacleMap[currentLanguage];
 
   const isIncludeText = (str: string, text?: string) => {
     return !text || str?.toLowerCase().includes(text.toLowerCase());
@@ -52,7 +59,7 @@ const App: FC = () => {
 
   return (
     <ConfigProvider locale={currentAntdLocale}>
-      <IntlProvider locale={currentLanguage} messages={translationDictFromLocale[currentLanguage]} onError={()=>{}}>
+      <IntlProvider locale={locale} messages={translationDictFromLocale[locale]} onError={()=>{}}>
         <div className="App" dir={direction}>
           <div className="NewsApp-wrapper">
             <Header />
