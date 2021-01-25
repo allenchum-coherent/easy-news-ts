@@ -11,7 +11,11 @@ export const fetchNews = (pageSize: number, currPage: number, locale: LanguageOp
         dispatch(showLoading(true));
         const [language, country] = locale.split('_');
 
-        return axios.get('https://newsapi.org/v2/top-headlines', { 'params': { 'country': country ?? 'us', 'apiKey': '758729489d09410b97af1e815878c9ec', 'pageSize': pageSize, 'page': currPage, language: language ?? 'en' } }).then((res) => {
+        // const apiKey =  '758729489d09410b97af1e815878c9ec' // chumwai@gmail.com.hk 
+        const apiKey = 'adde1c1ada194e048e340109f149e4e4'; // allen.chum@coherent.com.hk
+        // 100 requests per key each day
+
+        return axios.get('https://newsapi.org/v2/top-headlines', { 'params': { 'country': country , 'apiKey': apiKey, 'pageSize': pageSize, 'page': currPage, language: language ?? 'en' } }).then((res) => {
             var data = res.data;
             if (data && data.status === 'ok') {
                 dispatch(updateNews(data));

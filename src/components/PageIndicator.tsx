@@ -1,6 +1,6 @@
 import React, { FC, useMemo, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { changePage, fetchNews } from '../redux/actions';
+import { changePage } from '../redux/actions';
 import { AppState } from '../redux/reducers';
 
 import '../styles/page-indicator.scss';
@@ -23,8 +23,7 @@ const PageIndicator: FC<IPageIndicator> = ({ pageSize = 10 }) => {
 
     const dispatchChangePage = useCallback((target) => {
         dispatch(changePage(target));
-        dispatch(fetchNews(pageSize, target))
-    }, [dispatch, pageSize]);
+    }, [dispatch]);
 
     const handleChangePage = useCallback((target: string | number) => {
         if (target === 'next') {

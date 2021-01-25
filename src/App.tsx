@@ -17,12 +17,12 @@ const App: FC = () => {
   const pageSize = 10;
   const dispatch = useDispatch();
   const { currPage, showLoading, articles, searchInputText, direction, currentLanguage } = useSelector(({ news, language }: AppState) => ({
-    currPage: news.currPage,
+    currPage: news.currPage ?? 1,
     showLoading: news.showLoading,
     articles: news.articles,
     searchInputText: news.searchInputText,
     direction: language.direction,
-    currentLanguage: language.currentLanguage ?? 'en_us'
+    currentLanguage: language.currentLanguage
   }));
 
   const currentAntdLocale = antdLocaleMap[currentLanguage];
@@ -39,7 +39,7 @@ const App: FC = () => {
   }
 
   useEffect(() => {
-    dispatch(fetchNews(pageSize, currPage ?? 1, currentLanguage));
+    dispatch(fetchNews(pageSize, currPage, currentLanguage));
   }, [dispatch, pageSize, currPage, currentLanguage])
 
   const renderCards = useMemo(() => {
